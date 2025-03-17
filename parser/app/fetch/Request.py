@@ -7,9 +7,9 @@ class Request:
     session: Session
     
     def __init__(self, user: UserModel):
-        self.session = self._get_session(user.email, user.password)
+        self.session = self.__get_session(user.email, user.password)
 
-    def _get_session(self, email, password):
+    def __get_session(self, email, password):
         data = {
             "user_login": f"{email}",
             "password": f"{password}",

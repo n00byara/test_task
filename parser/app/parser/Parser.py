@@ -10,7 +10,7 @@ class Parser:
     def __init__(self, user: UserModel):
         self.request = Request(user)
 
-    def _get_product_info(self, page: HtmlElement):
+    def __get_product_info(self, page: HtmlElement):
         product_data = dict()
 
         # dict из http://schema.org/Product
@@ -116,6 +116,6 @@ class Parser:
 
         for url in links:
             item_page = self.request.get_page_from_url(url)
-            grid_list.append(self._get_product_info(html.fromstring(item_page.content)))
+            grid_list.append(self.__get_product_info(html.fromstring(item_page.content)))
 
         return grid_list
